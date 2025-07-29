@@ -345,11 +345,14 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  width: 100%;
 }
 
 .appointment-form input,
 .appointment-form select {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;        /* Critical: prevent overflow inside flex */
+  box-sizing: border-box;
   padding: 12px 15px;
   border: 1px solid #00ffc3;
   background-color: #111;
@@ -631,12 +634,17 @@ blockquote {
   .appointment-form .form-row {
     flex-direction: column;
     gap: 12px;
+    width: 100%;
+    padding: 0 5px;        /* Thoda horizontal padding for container */
+    box-sizing: border-box;
   }
 
   .appointment-form input,
   .appointment-form select {
     font-size: 0.95rem;
     padding: 10px 12px;
+      width: 100%;            /* Full width within row */
+    min-width: 0;
   }
 
   /* Clinic Grid Icons & Text */
