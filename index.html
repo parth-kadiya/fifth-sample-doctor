@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Karnav Patel - Official Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Background Videos -->
+  <video autoplay muted loop playsinline class="bg-video desktop-video">
+    <source src="videos/vid.mp4" type="video/mp4" />
+  </video>
+  <video autoplay muted loop playsinline class="bg-video mobile-video">
+    <source src="videos/m_vid.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Doctor Profile Card -->
+    <section class="profile-card fade-in">
+      <div class="photo-container">
+        <img src="images/doctor.png" alt="Dr. Karnav Patel" class="doctor-photo" />
+        <div class="line top"></div>
+        <div class="line right"></div>
+        <div class="line bottom"></div>
+        <div class="line left"></div>
+      </div>
+      <div class="doctor-info">
+        <h1>Dr. Karnav Patel</h1>
+        <p>MBBS, MD - General Physician</p>
+
+        <div class="extra-details-grid">
+          <div class="icon"><i class="fas fa-university"></i></div>
+          <div class="text" style="text-align: left;">Degree from Gujarat Medical College</div>
+
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="text">Area: Maninagar</div>
+
+          <div class="icon"><i class="fas fa-city"></i></div>
+          <div class="text">City: Ahmedabad</div>
+
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <div class="text tagline-text">Your Health, Our Priority</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid Section Container -->
+    <div class="section-grid-container">
+
+      <!-- Row 1 -->
+      <!-- About -->
+      <section class="section fade-in about-section">
+        <h2><i class="fas fa-user-md"></i> About the Doctor</h2>
+        <p>Dr. Karnav Patel is an experienced and compassionate physician offering expert care in general medicine. With a patient-first approach and 10+ years of excellence, he’s committed to your long-term well-being.</p>
+      </section>
+
+      <!-- Services -->
+      <section class="section fade-in services-section">
+        <h2><i class="fas fa-stethoscope"></i> Services Offered</h2>
+        <div class="service-grid">
+          <div class="service-box">General Consultation</div>
+          <div class="service-box">Diabetes Management</div>
+          <div class="service-box">Hypertension Treatment</div>
+          <div class="service-box">Annual Health Check-ups</div>
+          <div class="service-box">Vaccinations</div>
+          <div class="service-box">Physiotherapy</div>
+        </div>
+      </section>
+
+      <!-- Row 2 -->
+      <!-- Testimonials -->
+      <section class="section fade-in testimonials-section">
+        <h2><i class="fas fa-comments"></i> Patient Testimonials</h2>
+        <blockquote>"Dr. Karnav is extremely professional and kind. I trust him completely with my family’s health." <br>– R. Mehta</blockquote>
+        <blockquote>"Amazing doctor! The clinic is well-equipped and the team is fantastic." <br>– A. Shah</blockquote>
+      </section>
+
+      <!-- New Section: Health Tips -->
+      <section class="section fade-in tips-section">
+        <h2><i class="fas fa-lightbulb"></i> Health Tips</h2>
+        <p>• Drink at least 8 glasses of water daily.<br>
+           • Include fresh fruits and vegetables in every meal.<br>
+           • Take a 30-minute brisk walk or other moderate exercise most days.<br>
+           • Practice deep‑breathing or meditation for stress relief.<br>
+           • Get 7–8 hours of quality sleep each night.</p>
+      </section>
+
+      <!-- Row 3 -->
+      <!-- Book Appointment -->
+      <section class="section fade-in book-appointment">
+        <h2><i class="fas fa-calendar-check"></i> Book an Appointment</h2>
+        <form class="appointment-form">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="tel" name="mobile" placeholder="Mobile Number" required />
+          </div>
+          <div class="form-row">
+            <select name="treatment" required>
+              <option value="" disabled selected>Select Treatment</option>
+              <option value="General Consultation">General Consultation</option>
+              <option value="Diabetes Management">Diabetes Management</option>
+              <option value="Hypertension Treatment">Hypertension Treatment</option>
+              <option value="Health Check-up">Annual Health Check-up</option>
+              <option value="Vaccination">Vaccination</option>
+              <option value="Physiotherapy">Physiotherapy</option>
+            </select>
+            <input type="text" name="city" placeholder="City" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="area" placeholder="Area / Locality" required />
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </section>
+
+      <!-- Clinic Info -->
+      <section class="section fade-in clinic-section">
+        <h2><i class="fas fa-clinic-medical"></i> Clinic Information</h2>
+        <div class="clinic-grid">
+          <div class="icon"><i class="fas fa-hospital"></i></div>
+          <div class="text"><strong>Clinic:</strong> Karnav Health Care</div>
+
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="text"><strong>Location:</strong> 1234 Health Street, Ahmedabad, Gujarat</div>
+
+          <div class="icon"><i class="fas fa-clock"></i></div>
+          <div class="text"><strong>Timings:</strong> Mon-Sat, 9AM – 1PM & 5PM – 9PM</div>
+
+          <div class="icon"><i class="fas fa-phone"></i></div>
+          <div class="text"><strong>Contact:</strong> +91 98765 43210</div>
+
+             <!-- नए details: -->
+   <div class="icon"><i class="fas fa-envelope"></i></div>
+   <div class="text"><strong>Email:</strong>  dr.karnav@example.com</div>
+
+   <div class="icon"><i class="fas fa-globe"></i></div>
+   <div class="text"><strong>Website:</strong>  www.karnavhealthcare.com</div>
+        </div>
+      </section>
+
+    </div><!-- .section-grid-container -->
+
+    <!-- Popup Box -->
+    <div class="popup-overlay" id="popupBox">
+      <div class="popup-content">
+        <h2 class="popup-title"><i class="fas fa-calendar-check"></i> Book an Appointment?</h2>
+        <div class="popup-buttons">
+          <button class="popup-btn book" id="bookButton">Yes, Book</button>
+          <button class="popup-btn cancel" onclick="closePopup()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Dr. Karnav Patel. All rights reserved.</p>
+  </footer>
+
+  </div><!-- .main-content -->
+
+  
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

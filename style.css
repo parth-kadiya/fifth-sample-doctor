@@ -1,0 +1,668 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  color: #fff;
+}
+
+/* Background Video */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  display: none;
+}
+.desktop-video {
+  display: block;
+}
+@media (max-width: 767px) {
+  .desktop-video { display: none; }
+  .mobile-video { display: block; }
+}
+
+/* Main Layout */
+.main-content {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* Doctor Profile Card */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform 0.4s;
+  max-width: 1100px;
+  margin: 0 auto 50px;
+}
+.profile-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+.doctor-photo {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Photo Container Style */
+.photo-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Lines ka Common Style */
+/* Lines ka Common Style */
+.line {
+  position: absolute;
+  background-color: #00ffc3;
+}
+
+/* Individual Line Positions */
+.top {
+  top: -3px;
+  left: 0;
+  height: 4px;
+  width: 100%; /* Full width, scale se control karenge */
+  transform: scaleX(0); /* Shuru mein invisible */
+  transform-origin: left; /* Left se right grow karegi */
+}
+
+.left {
+  top: -3px;
+  left: -3px;
+  width: 4px;
+  height: 100%; /* Full height */
+  transform: scaleY(0); /* Shuru mein invisible */
+  transform-origin: top; /* Top se bottom grow karegi */
+}
+
+.bottom {
+  bottom: 3px;
+  right: 0; /* Left se change karke right: 0, kyunki right se left grow karni hai */
+  height: 4px;
+  width: 100%; /* Full width */
+  transform: scaleX(0); /* Shuru mein invisible */
+  transform-origin: right; /* Right se left grow karegi */
+}
+
+.right {
+  bottom: 3px; /* Top: -3px se change karke bottom: 0, kyunki bottom se top grow karni hai */
+  right: -4px;
+  width: 4px;
+  height: 99%; /* Full height */
+  transform: scaleY(0); /* Shuru mein invisible */
+  transform-origin: bottom; /* Bottom se top grow karegi */
+}
+
+/* Animations */
+.line.top {
+  animation: top-line 4s infinite linear;
+}
+
+.line.left {
+  animation: left-line 4s infinite linear;
+}
+
+.line.bottom {
+  animation: bottom-line 4s infinite linear;
+}
+
+.line.right {
+  animation: right-line 4s infinite linear;
+}
+
+/* Keyframes */
+@keyframes top-line {
+  0% { transform: scaleX(0); }     /* Start mein invisible */
+  50% { transform: scaleX(1); }    /* 2s pe full width (top-right tak) */
+  50.01% { transform: scaleX(0); } /* Turant disappear */
+  100% { transform: scaleX(0); }   /* End tak invisible */
+}
+
+@keyframes left-line {
+  0% { transform: scaleY(0); }     /* Start mein invisible */
+  50% { transform: scaleY(1); }    /* 2s pe full height (bottom-left tak) */
+  50.01% { transform: scaleY(0); } /* Turant disappear */
+  100% { transform: scaleY(0); }   /* End tak invisible */
+}
+
+@keyframes bottom-line {
+  0% { transform: scaleX(0); }     /* Start mein invisible */
+  50% { transform: scaleX(0); }    /* 2s tak invisible */
+  100% { transform: scaleX(1); }   /* 4s pe full width (bottom-left tak) */
+}
+
+@keyframes right-line {
+  0% { transform: scaleY(0); }     /* Start mein invisible */
+  50% { transform: scaleY(0); }    /* 2s tak invisible */
+  100% { transform: scaleY(1); }   /* 4s pe full height (top-right tak) */
+}
+
+
+.doctor-info h1 {
+  font-size: 2rem;
+}
+.doctor-info p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.doctor-info h1,
+.doctor-info p {
+  margin-left: 0;        /* Reset */
+  padding-left: 0;       /* Reset */
+  text-align: left;
+}
+
+.doctor-info {
+  padding-left: 45px;    /* Align all content (heading + p + icons) from icon position */
+}
+
+
+
+.extra-details-grid {
+  display: grid;
+  grid-template-columns: 30px auto;
+  gap: 10px 15px;
+  margin-top: 15px;
+  align-items: start;
+}
+
+.extra-details-grid .icon {
+  color: #00ffc3;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* ✅ full height so it aligns in the center of the row */
+}
+
+.extra-details-grid .text {
+  color: #e0e0e0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.extra-details-grid .tagline-text {
+  font-weight: 600;
+  color: #00ffc3;
+}
+
+
+/* Sections */
+.section {
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transform: translateY(0);                  /* starting point */
+  transition: transform 0.3s ease-in-out;    /* only transform, smooth */
+}
+
+.section:hover {
+  transform: translateY(-5px) !important;
+}
+
+.section h2 {
+  font-size: 1.4rem; /* Smaller heading size */
+  border-bottom: 2px solid #00ffc3;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.section h2 i {
+   font-size: 1.5rem;
+  color: #00ffc3;
+
+  /* Add this for proper alignment */
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section p, .section li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+.section-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 25px;
+  max-width: 1100px;
+  margin: 0 auto 50px;
+
+  /* नीचे वाला जोड़ें: */
+  grid-template-areas:
+    "about    services"
+    "testimonials tips"
+    "appointment clinic";
+}
+
+/* हर सेक्शन को उसका grid-area दें: */
+.about-section        { grid-area: about; }
+.services-section     { grid-area: services; }
+.testimonials-section { grid-area: testimonials; }
+.tips-section         { grid-area: tips; }         /* new */
+.book-appointment     { grid-area: appointment; }
+.clinic-section       { grid-area: clinic; }
+
+
+.section-grid-container .section {
+  margin: 0; /* override default section spacing */
+}
+
+.info-list li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.info-list li i {
+  margin-right: 8px;
+  color: #00ffc3;
+}
+
+/* Services Grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  align-items: stretch;    /* सभी box equal height के लिए */
+}
+
+.service-box {
+  background: #1f1f1f;
+  border: 1px solid #00ffc3;
+  padding: 20px;           /* थोड़ा extra padding for consistency */
+  border-radius: 12px;
+  text-align: center;
+  display: flex;           /* center vertically+horizontally */
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;       /* fixed minimum height */
+  transition: transform 0.3s, background 0.3s;
+}
+
+.service-box:hover {
+  background: #00ffc3;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.clinic-grid {
+  display: grid;
+  grid-template-columns: 30px auto;
+  gap: 10px 15px;
+  margin-top: 15px;
+  align-items: start;
+}
+
+.clinic-grid .icon {
+  color: #00ffc3;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Testimonials */
+blockquote {
+  font-style: italic;
+  margin: 15px 0;
+  padding-left: 15px;
+  border-left: 3px solid #00ffc3;
+}
+
+/* Appointment Form */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.appointment-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.appointment-form input,
+.appointment-form select {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #00ffc3;
+  background-color: #111;
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.appointment-form input::placeholder,
+.appointment-form select {
+  color: #ccc;
+}
+
+.appointment-form input:focus,
+.appointment-form select:focus {
+  border-color: #00cfa2;
+}
+
+.appointment-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px 18px;
+}
+
+.submit-btn {
+  background-color: #00ffc3;
+  color: #000;
+  border: none;
+  width: 100%;                   /* full width */
+  font-family: 'Poppins', sans-serif;  /* Poppins font */
+  padding: 12px 0;              /* vertical padding, horizontal auto */
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  /* align-self हटाएं ताकि पूरा cell ले ले */
+}
+
+.submit-btn:hover {
+  background-color: #00cfa2;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
+
+/* WhatsApp Pulsing Animation */
+.whatsapp-float {
+  animation: pulseScale 2s infinite ease-in-out;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 28px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+  text-decoration: none;
+}
+
+/* Size Grow-Shrink */
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Wave Effect Around Button */
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 211, 102, 0.4);
+  border-radius: 50%;
+  animation: rippleWave 2s infinite ease-out;
+  z-index: -1;
+}
+
+@keyframes rippleWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.whatsapp-float:hover {
+  
+  text-decoration: none;
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;      /* viewport ke upar layer */
+  top: 0; left: 0;      /* screen ke top-left corner se start */
+  width: 100vw;         /* full viewport width */
+  height: 100vh;        /* full viewport height */
+  display: none;        /* JS se flex karke hi show hoga */
+  align-items: center;  /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 99999;
+}
+
+
+/* Popup Box Styling */
+.popup-content {
+  background: #1a1a1a;
+  border: 2px solid #00ffc3;
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 255, 195, 0.3);
+  animation: fadeInScale 0.4s ease-out;
+}
+
+.popup-content h2 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 25px;
+
+  display: inline-flex;        /* inline के तरह behave करे */
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;         /* line-break रोके */
+  font-weight: normal;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.popup-btn {
+  padding: 12px 25px;          /* थोड़ा बढ़ा padding */
+  min-width: 120px;            /* बराबर width ensure */
+  font-family: 'Poppins', sans-serif;  /* Poppins लगाएं */
+  font-size: 1rem;             /* consistent font-size */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  text-align: center;
+}
+
+/* hover effect optional */
+.popup-btn:hover {
+  transform: translateY(-2px);
+}
+
+.popup-btn.book {
+  background-color: #00ffc3;
+  color: #000;
+  border: none;
+}
+
+.popup-btn.book:hover {
+  background-color: #00cfa2;
+}
+
+.popup-btn.cancel {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #ccc;
+}
+
+.popup-btn.cancel:hover {
+  color: #00ffc3;
+  border-color: #00ffc3;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Responsive Layout - Max Width 767px */
+@media (max-width: 767px) {
+  /* Profile Card: stack image & info */
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    padding: 20px 15px;
+  }
+
+  .doctor-info {
+    padding-left: 0;
+  }
+
+  .doctor-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .doctor-photo {
+    width: 180px;
+    height: 220px;
+  }
+
+  .extra-details-grid {
+    grid-template-columns: 25px auto;
+  }
+
+  /* Stack all sections vertically in correct order */
+  .section-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+
+  .section {
+    padding: 18px 15px;
+  }
+
+  .section h2 {
+    font-size: 1.2rem;
+  }
+
+  .section h2 i {
+    font-size: 1.3rem;
+    width: auto;
+  }
+
+  /* Service boxes: 2 per row or full width if small screen */
+  .service-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  /* Appointment Form: stack inputs properly */
+  .appointment-form .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  /* Clinic Grid Icons & Text */
+  .clinic-grid {
+    grid-template-columns: 25px auto;
+  }
+
+  /* Blockquotes padding fix */
+  blockquote {
+    padding-left: 10px;
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px 0;
+    margin-top: 30px;
+  }
+
+  /* WhatsApp Button size reduce for smaller screens */
+  .whatsapp-float {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
